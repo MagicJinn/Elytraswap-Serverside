@@ -16,6 +16,9 @@ public class ElytraswapServerside implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		PlayerOptOut.load();
+		ElytraswapCommand.register();
+
 		ServerTickEvents.END_LEVEL_TICK.register(level -> {
 			for (ServerPlayer player : level.players()) {
 				PlayerSwapTicker.tick(player);

@@ -17,10 +17,12 @@ public final class TakeoffHandler {
 	 * Swaps in the best inventory elytra when the chest slot cannot glide yet.
 	 */
 	public static void prepareForTakeoff(ServerPlayer player) {
-		PhantomElytra.clearQuiet(player);
-
-		if (!SwapAlgorithms.canOperate(player) || SwapAlgorithms.isChestBound(player))
+		if (!SwapAlgorithms.canOperate(player) || SwapAlgorithms.isChestBound(player)) {
+			PhantomElytra.clear(player);
 			return;
+		}
+
+		PhantomElytra.clearQuiet(player);
 
 		if (LivingEntity.canGlideUsing(player.getItemBySlot(EquipmentSlot.CHEST), EquipmentSlot.CHEST))
 			return;

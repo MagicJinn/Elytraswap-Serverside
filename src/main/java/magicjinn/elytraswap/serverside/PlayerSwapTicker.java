@@ -22,7 +22,7 @@ public final class PlayerSwapTicker {
 	public static void tick(ServerPlayer player) {
 		UUID id = player.getUUID();
 
-		if (player.isSpectator() || player.isDeadOrDying() || player.isCreative()) {
+		if (player.isSpectator() || player.isDeadOrDying() || player.isCreative() || PlayerOptOut.isOptedOut(player)) {
 			PhantomElytra.clear(player);
 			WAS_AIRBORNE.put(id, false);
 			GROUNDED_TICKS.put(id, LAND_STABLE_TICKS);

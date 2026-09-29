@@ -31,12 +31,13 @@ public final class SwapAlgorithms {
 	/**
 	 * Blacklist conditions. Creative mode has full authority over inventory,
 	 * causing untold problems. Players with nothing in their chest slot should not
-	 * swap.
+	 * swap. Players who opt out are not eligible.
 	 */
 	public static boolean canOperate(ServerPlayer player) {
 		return !player.isCreative()
 				&& !player.isSpectator()
-				&& !player.getItemBySlot(EquipmentSlot.CHEST).isEmpty();
+				&& !player.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
+				&& !PlayerOptOut.isOptedOut(player);
 	}
 
 	/**
