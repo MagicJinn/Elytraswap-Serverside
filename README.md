@@ -4,6 +4,8 @@
 
 ## Automatic elytra and chestplate swapping, entirely on the server
 
+[![Modrinth: Elytraswap Serverside](https://img.shields.io/badge/Modrinth-Elytraswap_Serverside-00ae5d?logo=modrinth)](https://modrinth.com/mod/elytraswap-serverside) [![CurseForge: Elytraswap Serverside](https://img.shields.io/badge/CurseForge-Elytraswap_Serverside-f16437?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/elytraswap-serverside)
+
 Equip your chestplate while on the ground and your elytra while in the air, without a client mod. **Elytraswap Serverside** swaps between the best elytra and chestplate in your inventory when you take off or land, so every player on the server gets the same seamless flight experience.
 
 Swap scoring and trigger rules are a port of [JJElytraSwap](https://github.com/JumperOnJava/JJElytraSwap) (MIT).
