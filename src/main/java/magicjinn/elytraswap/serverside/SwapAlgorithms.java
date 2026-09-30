@@ -167,9 +167,9 @@ public final class SwapAlgorithms {
 		return EnchantmentHelper.getItemEnchantmentLevel(holder, stack);
 	}
 
-	/** Hotbar 8>0, main 35>9, then offhand 40. */
+	/** Hotbar 8>0, main 35>9, offhand 40, then chest 38 (ties prefer keeping worn). */
 	public static int[] slotArray() {
-		int[] range = new int[37];
+		int[] range = new int[38];
 		for (int i = 0; i < 9; i++) {
 			range[i] = 8 - i;
 		}
@@ -177,6 +177,7 @@ public final class SwapAlgorithms {
 			range[i] = 35 - (i - 9);
 		}
 		range[36] = 40;
+		range[37] = InventorySwap.CHEST_INVENTORY_SLOT;
 		return range;
 	}
 }

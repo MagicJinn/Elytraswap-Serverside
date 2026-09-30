@@ -18,7 +18,7 @@ Swap scoring and trigger rules are a port of [JJElytraSwap](https://github.com/J
 
 ### How it works
 
-While you are airborne and still wearing a chestplate, the mod shows a **phantom elytra** to the client so takeoff can be detected and started. That overlay is sent by rewriting equipment packets. The server inventory itself is left alone until a real swap is needed (for example when you actually take off or land), and no other player can see this elytra. This way, we can detect a potential takeoff, without making you more vulnerable to damage while airborne.
+While you are airborne and still wearing a chestplate, the mod rewrites your equipment packets so the client sees that chestplate with a temporary **glider** component. That lets takeoff be detected and started without swapping server-side yet. Your player will not switch until a swap is needed (for example when you actually take off or land), and to other players it will appear and act like you're still wearing your chestplate.
 
 ### Limitations
 

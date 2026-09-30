@@ -43,7 +43,7 @@ public final class InventorySwap {
 
 		// Find the best elytra slot for swapping
 		Integer slot = SwapAlgorithms.findBestElytraSlot(player);
-		if (slot == null)
+		if (slot == null || slot == CHEST_INVENTORY_SLOT)
 			return false;
 
 		return swapWithChest(player, slot);
@@ -55,7 +55,7 @@ public final class InventorySwap {
 
 		// Find the best chestplate slot for swapping
 		Integer slot = SwapAlgorithms.findBestChestplateSlot(player);
-		if (slot == null)
+		if (slot == null || slot == CHEST_INVENTORY_SLOT)
 			return false;
 
 		return swapWithChest(player, slot);
