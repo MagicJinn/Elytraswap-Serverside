@@ -58,6 +58,10 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_$projectName"}
 	}
+	// Add the NOTICE file to the jar
+	from("NOTICE") {
+		rename { "${it}_$projectName"}
+	}
 }
 
 // configure the maven publication
