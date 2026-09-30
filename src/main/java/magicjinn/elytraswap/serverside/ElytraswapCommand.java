@@ -22,9 +22,8 @@ public final class ElytraswapCommand {
 	private static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
 		dispatcher.register(
 				Commands.literal("elytraswap")
-						.executes(cmandContext -> toggle(cmandContext.getSource()))
-						.then(Commands.literal("toggle").executes(cmandContext -> toggle(cmandContext.getSource())))
-						.then(Commands.literal("status").executes(cmandContext -> status(cmandContext.getSource()))));
+						.executes(cmandContext -> status(cmandContext.getSource()))
+						.then(Commands.literal("toggle").executes(cmandContext -> toggle(cmandContext.getSource()))));
 	}
 
 	private static int toggle(CommandSourceStack source) {
@@ -35,7 +34,6 @@ public final class ElytraswapCommand {
 		}
 
 		boolean optedOut = PlayerOptOut.toggle(player);
-		String status = optedOut ? "disabled" : "enabled";
 		if (optedOut)
 			PhantomElytra.clear(player);
 

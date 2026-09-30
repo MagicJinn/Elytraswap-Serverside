@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -70,6 +71,13 @@ public final class SwapAlgorithms {
 		return !stack.isEmpty() && stack.has(DataComponents.GLIDER);
 	}
 
+	/** Glider that can start flight and is safe to auto-equip (no Curse of Binding). */
+	public static boolean isUsableElytra(ServerPlayer player, ItemStack stack) {
+		return isGlider(stack)
+				&& getEnchantmentLevel(player, Enchantments.BINDING_CURSE, stack) == 0
+				&& LivingEntity.canGlideUsing(stack, EquipmentSlot.CHEST);
+	}
+
 	/** Find the best elytra slot for swapping. */
 	public static Integer findBestElytraSlot(ServerPlayer player) {
 		List<Integer> slots = getElytraSlots(player);
@@ -93,7 +101,7 @@ public final class SwapAlgorithms {
 	public static List<Integer> getElytraSlots(ServerPlayer player) {
 		List<Integer> elytraSlots = new ArrayList<>();
 		for (int slot : slotArray()) {
-			if (isGlider(player.getInventory().getItem(slot)))
+			if (isUsableElytra(player, player.getInventory().getItem(slot)))
 				elytraSlots.add(slot);
 		}
 		return elytraSlots;

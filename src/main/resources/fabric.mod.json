@@ -17,17 +17,10 @@
 	"entrypoints": {
 		"main": [
 			"magicjinn.elytraswap.serverside.ElytraswapServerside"
-		],
-		"client": [
-			"magicjinn.elytraswap.serverside.client.ElytraswapServersideClient"
 		]
 	},
 	"mixins": [
-		"elytraswap-serverside.mixins.json",
-		{
-			"config": "elytraswap-serverside.client.mixins.json",
-			"environment": "client"
-		}
+		"elytraswap-serverside.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
